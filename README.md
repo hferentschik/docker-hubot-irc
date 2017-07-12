@@ -1,6 +1,5 @@
 # Minibot
 
-Dockerfile for a custom [Hubot](https://hubot.github.com) called Minibot.
 Minibot is a IRC bot employed by the [Minishift team](https://github.com/orgs/minishift/teams/minishift-dev/members) to work on the #minishift channel on irc.freenode.net.
 
 <!-- MarkdownTOC -->
@@ -71,8 +70,8 @@ You can ask for pull request artifacts from a CentOS CI pull request build by:
 <a name="ci-notifications"></a>
 ### CI notifications
 
-At the moment only [Travis CI](https://travis-ci.org/minishift/minishift) and [AppVeyor](https://www.appveyor.com) send notifications to Minibot.
-The required webhooks are configured in [.travis.yml](https://github.com/minishift/minishift/blob/master/.travis.yml) resp. [appveyor.yml](https://github.com/minishift/minishift/blob/master/appveyor.yml) in the Minishift [repository](https://github.com/minishift/minishift).
+At the moment [Travis CI](https://travis-ci.org/minishift/minishift), [AppVeyor](https://www.appveyor.com) and [Circle CI](https://circleci.com) send notifications to Minibot.
+The required webhooks are configured in [.travis.yml](https://github.com/minishift/minishift/blob/master/.travis.yml), [appveyor.yml](https://github.com/minishift/minishift/blob/master/appveyor.yml) resp. [circle.yml](https://github.com/minishift/minishift/blob/master/circle.yml) in the Minishift [repository](https://github.com/minishift/minishift).
 
 <a name="misc"></a>
 ### Misc
@@ -104,9 +103,11 @@ The [testdata](https://github.com/minishift/minibot/tree/master/testdata) direct
 To test a webhook, execute the following against your local instance of Minibot:
 
     $ cd testdata
-    $ curl http://<IP>:9009/hubot/travis_ci --data-urlencode payload@travis_ci.json
+    $ curl http://<IP>:9009/hubot/travis-ci --data-urlencode payload@travis-ci.json
     # or
-    $ curl http://<IP>:9009/hubot/appveyor -H "Content-Type: application/json" -d  @appveyor.json
+    $ curl http://<IP>:9009/hubot/circleci -H "Content-Type: application/json" -d @circleci.json
+    # or
+    $ curl http://<IP>:9009/hubot/appveyor -H "Content-Type: application/json" -d @appveyor.json
 
 where:
 

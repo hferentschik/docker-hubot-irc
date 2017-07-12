@@ -1,4 +1,5 @@
-MINBOT_IMAGE_NAME = minishift/minibot
+MINBOT_IMAGE_NAME ?= minishift-bot/minibot
+MINIBOT_VERSION = 0.9.0
 
 # Variables needed to run Minibot
 MINIBOT_IRC_TEST_CHANNEL ?= "\#minishift-test"
@@ -27,3 +28,9 @@ run: build
 
 clean:
 	docker stop $(shell docker ps -a -q) && docker rm $(shell docker ps -a -q)
+
+tag: build
+	docker tag $(MINBOT_IMAGE_NAME) $(MINBOT_IMAGE_NAME):$(MINIBOT_VERSION)
+
+push: tag
+	docker push $(MINBOT_IMAGE_NAME)

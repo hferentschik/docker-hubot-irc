@@ -1,0 +1,115 @@
+{
+   "payload":{
+      "compare":"https://github.com/hferentschik/minishift/compare/2225c439ea1e...369763cea433",
+      "previous_successful_build":{
+         "build_num":476,
+         "status":"success",
+         "build_time_millis":255640
+      },
+      "build_parameters":null,
+      "oss":true,
+      "all_commit_details_truncated":false,
+      "committer_date":"2017-07-12T15:07:04+02:00",
+      "body":"",
+      "usage_queued_at":"2017-07-12T13:05:33.823Z",
+      "fail_reason":null,
+      "retry_of":null,
+      "reponame":"minishift",
+      "ssh_users":[
+
+      ],
+      "build_url":"https://circleci.com/gh/minishift/minishift/477",
+      "parallel":1,
+      "failed":null,
+      "branch":"pull/1200",
+      "username":"hferentschik",
+      "author_date":"2017-07-12T15:07:04+02:00",
+      "why":"github",
+      "user":{
+         "is_user":true,
+         "login":"hferentschik",
+         "avatar_url":"https://avatars3.githubusercontent.com/u/296354?v=3",
+         "name":"Hardy Ferentschik",
+         "vcs_type":"github",
+         "id":296354
+      },
+      "vcs_revision":"369763cea43370577bac691c51e227f170574a40",
+      "vcs_tag":null,
+      "build_num":477,
+      "infrastructure_fail":false,
+      "committer_email":"hardy@hibernate.org",
+      "has_artifacts":true,
+      "previous":{
+         "build_num":476,
+         "status":"success",
+         "build_time_millis":255640
+      },
+      "status":"failed",
+      "committer_name":"Hardy Ferentschik",
+      "retries":null,
+      "subject":"Issue #1045 Introducing --addon-env for 'addon apply' and 'start' command",
+      "vcs_type":"github",
+      "timedout":false,
+      "dont_build":null,
+      "lifecycle":"finished",
+      "no_dependency_cache":false,
+      "stop_time":"2017-07-12T13:11:39.872Z",
+      "ssh_disabled":false,
+      "build_time_millis":255918,
+      "picard":null,
+      "circle_yml":{
+         "string":"## Machine specific variable\nmachine:\n    environment:\n        GOPATH: $HOME\n        PATH: $GOPATH/bin:$PATH\n        XCODE_SCHEME: symbolicator\n        XCODE_WORKSPACE: symbolicator\n\n## Post operation after git checkout\ncheckout:\n    post:\n        - mkdir -p $HOME/src/github.com/minishift && cp -r ../$CIRCLE_PROJECT_REPONAME $HOME/src/github.com/minishift\n\n## Customize dependencies\ndependencies:\n    override:\n        - go version\n        - go env\n        # Install Glide\n        - curl -sL ${GLIDE_LATEST_RELEASE_URL} -o /tmp/glide.tar.gz:\n            environment:\n                GLIDE_OS_ARCH: $(go env GOHOSTOS)-$(go env GOHOSTARCH)\n                GLIDE_TAG: v0.12.3\n                GLIDE_LATEST_RELEASE_URL: \"https://github.com/Masterminds/glide/releases/download/${GLIDE_TAG}/glide-${GLIDE_TAG}-${GLIDE_OS_ARCH}.tar.gz\"\n        - mkdir /tmp/glide\n        - tar --directory=/tmp/glide -xvf /tmp/glide.tar.gz\n        - mv /tmp/glide/${GLIDE_OS_ARCH}/glide $GOPATH/bin/:\n            environment:\n                GLIDE_OS_ARCH: $(go env GOHOSTOS)-$(go env GOHOSTARCH)\n\n## Customize test commands\ntest:\n    override:\n        - make test cross fmtcheck prerelease:\n                pwd:\n                    ../src/github.com/minishift/minishift\n\n## Artifacts\ngeneral:\n    artifacts:\n        - \"../src/github.com/minishift/minishift/out\"\n\n## Notifications\nnotify:\n    webhooks:\n        - url: http://minibot.34e99f76.svc.dockerapp.io:9009/hubot/circleci\n"
+      },
+      "messages":[
+         {
+            "type":"warning",
+            "message":"The file 'symbolicator' set for 'XCODE_WORKSPACE' was not found. This situation may cause errors if it is not auto-generated."
+         },
+         {
+            "type":"warning",
+            "message":"Warning: CircleCI has located an Xcode project or workspace in this repository. If you'd like to build an OS X project please\n           enable \"Build OS X Project\" in your <a href='https://circleci.com/gh/hferentschik/minishift/edit#build-environment'>project settings</a>."
+         },
+         {
+            "type":"error",
+            "message":"webhook returned http status 404, connecting to http://minibot.34e99f76.svc.dockerapp.io:9009/hubot/circleci"
+         }
+      ],
+      "is_first_green_build":false,
+      "job_name":null,
+      "start_time":"2017-07-12T13:07:23.954Z",
+      "canceler":null,
+      "all_commit_details":[
+         {
+            "committer_date":"2017-07-12T15:07:04+02:00",
+            "body":"",
+            "branch":"issue-1045",
+            "author_date":"2017-07-12T15:07:04+02:00",
+            "committer_email":"hardy@hibernate.org",
+            "commit":"369763cea43370577bac691c51e227f170574a40",
+            "committer_login":"hferentschik",
+            "committer_name":"Hardy Ferentschik",
+            "subject":"Issue #1045 Introducing --addon-env for 'addon apply' and 'start' command",
+            "commit_url":"https://github.com/hferentschik/minishift/commit/369763cea43370577bac691c51e227f170574a40",
+            "author_login":"hferentschik",
+            "author_name":"Hardy Ferentschik",
+            "author_email":"hardy@hibernate.org"
+         }
+      ],
+      "platform":"1.0",
+      "outcome":"success",
+      "vcs_url":"https://github.com/hferentschik/minishift",
+      "author_name":"Hardy Ferentschik",
+      "node":[
+         {
+            "public_ip_addr":"13.59.41.188",
+            "port":64591,
+            "username":"ubuntu",
+            "image_id":"s3://lxc-images-us-east-2/build-image-ubuntu-14.04-XXL-1167-271bbe4.tar.gz",
+            "ssh_enabled":null
+         }
+      ],
+      "queued_at":"2017-07-12T13:07:23.937Z",
+      "canceled":false,
+      "author_email":"hardy@hibernate.org"
+   }
+}
